@@ -1,0 +1,11 @@
+peercrate/local.py
+.idea/*
+*.idea
+*.py[co]
+media/*
+static/*
+__pycache__/*
+*/__pycache__
+
+# python byte code files
+*.pyc
