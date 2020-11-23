@@ -392,3 +392,15 @@ class SearchItemView(viewsets.ViewSet):
         except:
             return Response(data={'message': 'Error Fetching details !'},
                             status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+class LogoutView(viewsets.ModelViewSet):
+    http_method_names = ['get']
+    permission_classes = (permissions.IsAuthenticated, )
+
+    def list(self, request, *args, **kwargs):
+        try:
+            obj = Token.objects.get(user=request.user).delete()
+            return Response(data={'message': 'Logout successfully'}, status=status.HTTP_200_OK)
+        except:
+            return Response(data={'message': 'Error logging out'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

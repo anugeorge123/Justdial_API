@@ -16,6 +16,7 @@ router.register(r'^service', views.ServiceView, basename='service')
 router.register(r'^item', views.ItemView, basename='item')
 router.register(r'^search', views.SearchItemView, basename='search')
 router.register(r'^review', views.ReviewView, basename='review')
+router.register(r'^logout', views.LogoutView, basename='logout')
 
 urlpatterns = [
     url(r'^', include(router.urls)),
