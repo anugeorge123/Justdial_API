@@ -1,5 +1,6 @@
 release: python manage.py makemigrations --no-input
 release: python manage.py migrate --no-input
 
-web: gunicorn fblogin.wsgi
+web: gunicorn fblogin.wsgi --log-file - --preload --workers 1 --log-level debug
 web: python app.py runserver 0.0.0.0:5000
+
